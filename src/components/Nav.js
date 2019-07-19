@@ -2,6 +2,7 @@ import piggy from '../porco.png'
 import React from 'react'
 
 class Nav extends React.Component {
+
 	render(){
 		return (
 			<div className="navWrapper">
@@ -12,6 +13,16 @@ class Nav extends React.Component {
 					</a>
 				</div>
 				<span className="normalText">A React App for County Fair Hog Fans</span>
+				<br/>
+				<h4>weights are shown as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water</h4>
+				Show Hidden Hogs: <input type="checkbox" onChange={this.props.onHiddenChange}/>
+				<br />
+				Show Only Greased Hogs: <input type="checkbox" onChange={this.props.onGreaseChange}/>
+				<br />
+				Sort By: <select onChange={(e)=>this.props.onSortChange(e.target.value)}>
+					<option value="name" >Name</option>
+					<option value="weight" >Weight</option>
+				</select>
 			</div>
 		)
 	}
