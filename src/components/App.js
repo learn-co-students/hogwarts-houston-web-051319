@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import HogsCollection from './HogsCollection';
 import '../App.css';
 import Nav from './Nav'
 
@@ -7,6 +8,8 @@ class App extends Component {
     return (
       <div className="App">
           < Nav />
+          < HogsCollection />
+
 
       </div>
     )
