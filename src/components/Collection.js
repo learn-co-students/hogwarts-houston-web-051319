@@ -32,20 +32,31 @@ export class Collection extends React.PureComponent{
         )
     }
 
+    // Use this to have gifs instead of images
+
+    // componentDidMount(){
+    //     fetch('http://localhost:3001/hogs')
+    //     .then(res => res.json())
+    //     .then(hogs => {
+    //         fetch('http://api.giphy.com/v1/gifs/search?q=pig&api_key=dc6zaTOxFJmzC&rating=g')
+    //         .then(res => res.json())
+    //         .then(gifs => {
+    //             hogs.forEach((hog) =>{
+    //                 let gif = gifs.data[hog.id].images.original.url
+    //                 hog.hidden = false
+    //                 hog.image = gif
+    //             })
+    //             this.setState({ hogs })
+    //         })
+    //     })
+    // }
+
     componentDidMount(){
         fetch('http://localhost:3001/hogs')
         .then(res => res.json())
         .then(hogs => {
-            fetch('http://api.giphy.com/v1/gifs/search?q=pig&api_key=dc6zaTOxFJmzC&rating=g')
-            .then(res => res.json())
-            .then(gifs => {
-                hogs.forEach((hog) =>{
-                    let gif = gifs.data[hog.id].images.original.url
-                    hog.hidden = false
-                    hog.image = gif
-                })
-                this.setState({ hogs })
-            })
+            hogs.forEach((hog) =>hog.hidden = false)
+            this.setState({ hogs })
         })
     }
 
